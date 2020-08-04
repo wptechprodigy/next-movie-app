@@ -5,9 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container">
-        <a className="navbar-brand">
-          Start Bootstrap
-        </a>
+        <a className="navbar-brand">Start Bootstrap</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -31,23 +29,17 @@ const Navbar = () => {
             </Link>
             <Link href="/about">
               <li className="nav-item">
-                <a className="nav-link">
-                  About
-                </a>
+                <a className="nav-link">About</a>
               </li>
             </Link>
             <Link href="/services">
               <li className="nav-item">
-                <a className="nav-link">
-                  Services
-                </a>
+                <a className="nav-link">Services</a>
               </li>
             </Link>
             <Link href="/contact">
               <li className="nav-item">
-                <a className="nav-link">
-                  Contact
-                </a>
+                <a className="nav-link">Contact</a>
               </li>
             </Link>
           </ul>

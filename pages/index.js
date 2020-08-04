@@ -9,20 +9,7 @@ import Footer from '../components/footer';
 
 import { getMovies } from '../actions';
 
-const Home = () => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const fetchedMovies = await getMovies();
-      setLoading(false);
-      setMovies(fetchedMovies);
-    };
-
-    fetchMovies();
-  }, []);
-
+const Home = ({ movies }) => {
   return (
     <div>
       <Head>
@@ -62,7 +49,7 @@ const Home = () => {
             <Carousel />
 
             <div className="row">
-              {loading ? 'Loading...' : <MovieList movies={movies} />}
+              <MovieList movies={movies} />
             </div>
           </div>
         </div>
@@ -79,5 +66,13 @@ const Home = () => {
     </div>
   );
 };
+
+Home.getInitialProps = async () => {
+  const movies = await getMovies();
+
+  return {
+    movies
+  }
+}
 
 export default Home;

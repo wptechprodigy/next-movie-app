@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
+import React, { useState, useEffect } from 'react';
 
+import Head from 'next/head';
 import Navbar from '../components/navbar';
 import SideMenu from '../components/sideMenu';
 import Carousel from '../components/carousel';
@@ -13,10 +13,15 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  getMovies().then((movies) => {
-    setLoading(false);
-    setMovies(movies);
-  });
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const fetchedMovies = await getMovies();
+      setLoading(false);
+      setMovies(fetchedMovies);
+    };
+
+    fetchMovies();
+  }, []);
 
   return (
     <div>

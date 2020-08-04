@@ -1,23 +1,44 @@
 import { useRouter } from 'next/router';
+import { getMovieById } from '../../actions';
 
-const Movie = () => {
+const Movie = ({ movie }) => {
   const router = useRouter();
   const { id } = router.query;
 
   return (
     <div className="container">
       <div className="jumbotron">
-        <h1 className="display-4">Movie Title</h1>
-        <p className="lead">This is a simple hero unit.</p>
+        <h1 className="display-4">{movie.name}</h1>
+        <p className="lead description">{movie.description}</p>
         <hr className="my-4" />
-        <p>It uses some blah blah blah</p>
+        <p>{movie.genre}</p>
         <a className="btn btn-primary btn-lg" href="/" role="button">
           Learn more
         </a>
       </div>
-      <p>Some movie description will go here as well.</p>
+      <p className="long-desc">{movie.longDesc}</p>
+
+      <style jsx>{`
+        .description {
+          font-size: 14px;
+        }
+
+        .long-desc {
+          font-size: 16px;
+        }
+      `}
+      </style>
     </div>
   );
+};
+
+Movie.getInitialProps = async (context) => {
+  const { id } = context.query;
+  const movie = await getMovieById(id);
+
+  return {
+    movie,
+  };
 };
 
 export default Movie;

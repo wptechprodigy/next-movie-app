@@ -6,7 +6,7 @@ import MovieList from '../components/movieList';
 
 import { getMovies } from '../actions';
 
-const Home = ({ movies }) => {
+const Home = ({ movies, images }) => {
   return (
     <>
       <div className="container">
@@ -16,7 +16,7 @@ const Home = ({ movies }) => {
           </div>
 
           <div className="col-lg-9">
-            <Carousel />
+            <Carousel images={images} />
 
             <div className="row">
               <MovieList movies={movies || []} />
@@ -30,9 +30,14 @@ const Home = ({ movies }) => {
 
 Home.getInitialProps = async () => {
   const movies = await getMovies();
+  const images = movies.map((movie) => ({
+    id: `image-${movie.id}`,
+    image: movie.image,
+  }));
 
   return {
     movies,
+    images,
   };
 };
 

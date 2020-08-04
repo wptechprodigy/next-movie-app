@@ -1,10 +1,6 @@
-import { useRouter } from 'next/router';
 import { getMovieById } from '../../actions';
 
 const Movie = ({ movie }) => {
-  const router = useRouter();
-  const { id } = router.query;
-
   return (
     <div className="container">
       <div className="jumbotron">

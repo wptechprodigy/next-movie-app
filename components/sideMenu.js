@@ -1,8 +1,10 @@
 import React from 'react';
+import Modal from './modal';
 
 const SideMenu = ({ name, categories }) => {
   return (
     <>
+      <Modal />
       <h1 className="my-4">{name}</h1>
       <div className="list-group">
         {categories.map((category) => (

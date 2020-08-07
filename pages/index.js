@@ -32,7 +32,7 @@ Home.getInitialProps = async () => {
   const movies = await getMovies();
   const images = movies.map((movie) => ({
     id: `image-${movie.id}`,
-    image: movie.image,
+    url: movie.coverImage,
   }));
 
   return {

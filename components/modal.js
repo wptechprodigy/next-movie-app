@@ -1,6 +1,10 @@
 const Modal = () => {
+  // Since we do not want to use any of Bootstrap API to close the modal, we employ "ref"
+  let closeButton = null;
+
   const handleSubmit = () => {
     alert('Submitting...');
+    closeButton.click();
   };
 
   return (
@@ -11,13 +15,13 @@ const Modal = () => {
         data-toggle="modal"
         data-target="#exampleModal"
       >
-        Launch demo modal
+        Create movie
       </button>
 
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -39,13 +43,18 @@ const Modal = () => {
             <div className="modal-body">...</div>
             <div className="modal-footer">
               <button
+                ref={(element) => (closeButton = element)}
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
               </button>
-              <button onClick={handleSubmit} type="button" className="btn btn-primary">
+              <button
+                onClick={handleSubmit}
+                type="button"
+                className="btn btn-primary"
+              >
                 Save changes
               </button>
             </div>

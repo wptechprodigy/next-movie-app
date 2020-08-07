@@ -48,19 +48,19 @@ const MOVIE_DATA = [
 
 const CATEGORY_DATA = [
   {
-    id: 1,
+    id: 'c-1',
     genre: 'drama',
   },
   {
-    id: 2,
+    id: 'c-2',
     genre: 'action',
   },
   {
-    id: 3,
+    id: 'c-3',
     genre: 'adventure',
   },
   {
-    id: 4,
+    id: 'c-4',
     genre: 'crime',
   },
 ];

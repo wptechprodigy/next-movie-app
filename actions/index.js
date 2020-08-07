@@ -65,6 +65,14 @@ const CATEGORY_DATA = [
   },
 ];
 
+export const getCategories = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(CATEGORY_DATA);
+    }, 50);
+  });
+};
+
 export const getMovies = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

@@ -1,19 +1,15 @@
 import React from 'react';
 
-const SideMenu = ({name}) => {
+const SideMenu = ({name, categories}) => {
   return (
     <>
       <h1 className="my-4">{name}</h1>
       <div className="list-group">
-        <a href="#" className="list-group-item">
-          Category 1
-        </a>
-        <a href="#" className="list-group-item">
-          Category 2
-        </a>
-        <a href="#" className="list-group-item">
-          Category 3
-        </a>
+        {categories.map((category) => (
+          <a href="#" key={category.id} className="list-group-item">
+          {category.genre}
+          </a>)
+        )}
       </div>
     </>
   );

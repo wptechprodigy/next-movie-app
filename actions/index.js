@@ -46,6 +46,25 @@ const MOVIE_DATA = [
   },
 ];
 
+const CATEGORY_DATA = [
+  {
+    id: 1,
+    genre: 'drama',
+  },
+  {
+    id: 2,
+    genre: 'action',
+  },
+  {
+    id: 3,
+    genre: 'adventure',
+  },
+  {
+    id: 4,
+    genre: 'crime',
+  },
+];
+
 export const getMovies = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
